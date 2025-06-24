@@ -1,0 +1,297 @@
+  /* CSS Variables for theming */
+  :root {
+    --color-bg: #ffe1ff;
+    --color-text: #520e4b;
+    --color-text-muted: #330c2e;
+    --color-primary: #B33791;
+    --color-primary-hover: #C562AF;
+    --color-accent: #c144ff;
+    --color-accent-hover: #971eaf;
+    --border-radius: 0.75rem;
+    --shadow-light: 0 1px 3px rgb(174, 0, 255);
+    --shadow-medium: 0 4px 6px rgb(179, 86, 255);
+    --font-sans: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    background-image: url(bg.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: var(--color-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover,
+  a:focus {
+    color: var(--color-accent-hover);
+    outline: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+  }
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--color-bg);
+    box-shadow: var(--shadow-light);
+    z-index: 1000;
+  }
+
+  nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+  }
+
+  .logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    user-select: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    color: rgb(249, 76, 249);
+    padding: 0.25rem 0;
+    position: relative;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus {
+    color: var(--color-primary);
+  }
+  /* underline on hover */
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+    border-radius: 1px;
+  }
+  .nav-links a:hover::after,
+  .nav-links a:focus::after {
+    width: 100%;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 6rem 1rem 6rem;
+    text-align: center;
+    background: linear-gradient(135deg, #eef2ff, #dbeafe);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    margin: 2rem auto 4rem;
+    max-width: 720px;
+  }
+
+  .hero h1 {
+    font-weight: 800;
+    font-size: 3.5rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+  }
+
+  .hero p {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: var(--color-primary-hover);
+    transform: scale(1.05);
+    outline: none;
+  }
+
+  /* Sections */
+  section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  section > h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.25rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+  }
+
+  /* About */
+  .about-text {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  /* Skills Section */
+  .skills-grid {
+    display: grid;
+    gap: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .skill-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 1.125rem;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: default;
+  }
+  .skill-card:hover,
+  .skill-card:focus {
+    box-shadow: 0 8px 16px rgb(191, 0, 255);
+    transform: translateY(-4px);
+    outline: none;
+  }
+
+  /* Projects Section */
+  .projects-grid {
+    display: grid;
+    gap: 2.5rem;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    height:auto;
+    width:auto;
+  }
+
+  .project-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .project-card:hover,
+  .project-card:focus-within {
+    box-shadow: 0 10px 20px rgb(128, 0, 255);
+    transform: translateY(-5px);
+    outline: none;
+  }
+
+  .project-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+  }
+
+  .project-desc {
+    flex-grow: 1;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+ 
+    /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Responsive text sizes */
+  @media (min-width: 640px) {
+    .hero h1 {
+      font-size: 4.5rem;
+    }
+  }
+   /* Contact Section */
+   .footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+.logo {
+  font-family: 'Cursive', sans-serif;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons img {
+  width: 28px;
+  
+}
+
+.social-icons a img:hover {
+  transform: scale(1.1);
+}
